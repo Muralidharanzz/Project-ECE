@@ -596,6 +596,7 @@ function App() {
                 <p className="subtitle">
                   {currentPlan.day} · {currentPlan.focus}
                 </p>
+
                 <div className="focus-card-main">
                   <div>
                     <span className="focus-label">Focus block</span>
@@ -605,16 +606,25 @@ function App() {
                     {String(focusMinutes).padStart(2, '0')}:{String(focusSecondsRemaining).padStart(2, '0')}
                   </div>
                 </div>
+
                 <ul className="task-list">
                   {currentPlan.tasks.map((task) => (
                     <li key={task}>{task}</li>
                   ))}
                 </ul>
+
                 <div className="cta-row">
                   <button type="button" className="primary-btn" onClick={markCurrentDayDone}>
                     {isTodayDone ? 'Mark not done' : 'Mark today done'}
                   </button>
                   <button type="button" className="secondary-btn" onClick={() => setMode('alternate')}>
+                    Alternate-day mode
+                  </button>
+                  <button type="button" className="secondary-btn" onClick={() => setMode('daily')}>
+                    Daily mode
+                  </button>
+                </div>
+              </div>
 
               <div className="hero-panel">
                 <div className="panel-header">
@@ -622,8 +632,9 @@ function App() {
                   <span className="dot yellow" />
                   <span className="dot red" />
                 </div>
+
                 <div className="panel-body">
-                      <div className="mini-card accent-card">
+                  <div className="mini-card accent-card">
                     <span>Current streak</span>
                     <strong>{currentStreak || planner.streak.current || 0} days</strong>
                   </div>

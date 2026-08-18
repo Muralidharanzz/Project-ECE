@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
+  base: '/Project-ECE/',
   plugins: [
     react(),
     VitePWA({
@@ -15,7 +16,7 @@ export default defineConfig({
         theme_color: '#020817',
         background_color: '#020817',
         display: 'standalone',
-        start_url: '/',
+        start_url: '/Project-ECE/',
         icons: [
           {
             src: '/embedded-roadmap-icon.svg',
